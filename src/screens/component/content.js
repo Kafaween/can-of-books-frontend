@@ -42,13 +42,15 @@ export class Content extends Component {
           url: '/verify-token',
         };
 
-        axios(config).then((axiosResponse) => {
-          // console.log('backend data', axiosResponse.data);
+        axios(config)
+          .then((axiosResponse) => {
+            // console.log('backend data', axiosResponse.data);
 
-          this.setState({
-            user: axiosResponse.data,
-          });
-        });
+            this.setState({
+              user: axiosResponse.data,
+            });
+          })
+          .catch((error) => alert(error));
       })
       .catch((error) => console.log(error));
   };
