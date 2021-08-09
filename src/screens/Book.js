@@ -1,16 +1,17 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 export class Book extends Component {
-    render() {
-        return (
-            <div>
-                <h3>{this.props.bookData.name}</h3>
-                <p>{this.props.bookData.description}</p>
-                <p>{this.props.bookData.status}</p>
-                <p>{this.props.bookData.email}</p>
-            </div>
-        )
-    }
+  render() {
+    console.log(this.props.dd);
+    return (
+      <div>
+        <h3>{this.props.dd.title}</h3>
+        <p>{this.props.dd.description}</p>
+        <p>{this.props.dd.status}</p>
+        <p>{this.props.dd.email}</p>
+      </div>
+    );
+  }
 }
 
-export default Book
+export default Book;
