@@ -1,19 +1,43 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Jumbotron from 'react-bootstrap/Jumbotron';
 import './BestBooks.css';
+import axios from 'axios';
+import { withAuth0 } from "@auth0/auth0-react";
+import Book from './screens/Book'
 
-class MyFavoriteBooks extends React.Component {
+
+export class BestBooks extends React.Component {
+
+  constructor(props){
+      super(props);
+      this.state = {
+          userEmail: 'mahmoud@gmail.com',
+          books: [],
+      }
+  }
+
+  componentDidMount = async () => {
+      await axios.get(`${process.env.REACT_APP_URL}/books?email=${this.state.userEmail}`).then(response => {
+          console.log(response);
+          this.setState({
+              books: response.data[0].books,
+          })
+      }).catch(error => {
+          console.log(error.message);
+      });
+    }
+
   render() {
-    return(
-      <Jumbotron>
-        <h1>My Favorite Books</h1>
-        <p>
-          This is a collection of my favorite books
-        </p>
-      </Jumbotron>
-    )
+      return (
+          <div>
+              {
+                  this.state.books.length>0 && 
+                  this.state.books.map((value,indx) => <Book key={this.state.books.name} bookData={this.state.books[indx]} />)  
+              }
+          </div>
+      )
   }
 }
 
-export default MyFavoriteBooks;
+  export default withAuth0(BestBooks);
+
