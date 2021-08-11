@@ -2,13 +2,19 @@ import React, { Component } from 'react';
 
 export class Book extends Component {
   render() {
-    console.log(this.props.dd);
+    console.log(this.props.data);
     return (
       <div>
-        <h3>{this.props.dd.title}</h3>
-        <p>{this.props.dd.description}</p>
-        <p>{this.props.dd.status}</p>
-        <p>{this.props.dd.email}</p>
+        {this.props.data.map((e) => {
+          return (
+            <>
+              <h3>{e.title}</h3>
+              <p>{e.description}</p>
+              <p>{e.status}</p>
+              <p>{e.email}</p>
+            </>
+          );
+        })}
       </div>
     );
   }
