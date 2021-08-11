@@ -9,7 +9,7 @@ export class BestBooks extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: '',
+      data: [],
     };
   }
 
@@ -29,7 +29,9 @@ export class BestBooks extends React.Component {
   };
 
   render() {
-    return <div>{this.state.data.title && <Book dd={this.state.data} />}</div>;
+    return (
+      <div>{this.state.data.length && <Book data={this.state.data} />}</div>
+    );
   }
 }
 
