@@ -7,18 +7,16 @@ import Book from './screens/Book'
 import Bookmodel from './compnents/Bookmodel'
 import Button from 'react-bootstrap/Button';
 
-
 export class BestBooks extends React.Component {
-
-  constructor(props){
-      super(props);
-      this.state = {
-          userEmail: 'mahmoud@gmail.com',
-          books: [],
-      }
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: [],
+    };
   }
 
   componentDidMount = async () => {
+
 }
 
 showAddForm = (boolean) => {
@@ -112,7 +110,7 @@ render() {
         </div>
     )
 }
+
 }
 
-  export default withAuth0(BestBooks);
-
+export default withAuth0(BestBooks);

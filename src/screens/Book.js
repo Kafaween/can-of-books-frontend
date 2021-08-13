@@ -1,16 +1,23 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 export class Book extends Component {
-    render() {
-        return (
-            <div>
-                <h3>{this.props.bookData.name}</h3>
-                <p>{this.props.bookData.description}</p>
-                <p>{this.props.bookData.status}</p>
-                <p>{this.props.bookData.email}</p>
-            </div>
-        )
-    }
+  render() {
+    console.log(this.props.data);
+    return (
+      <div>
+        {this.props.data.map((e) => {
+          return (
+            <>
+              <h3>{e.title}</h3>
+              <p>{e.description}</p>
+              <p>{e.status}</p>
+              <p>{e.email}</p>
+            </>
+          );
+        })}
+      </div>
+    );
+  }
 }
 
-export default Book
+export default Book;
